@@ -54,11 +54,11 @@ class NightLight(threading.Thread):
    config['TemperatureSensor']['ranges'] = (16,20,23.9)
    config['TemperatureSensor']['colours'] = ( (20, 0, 255), (255, 200, 10), (255, 128, 0), (255, 0, 0) )
 
-   config['Modes'] = {     'Off': {'menu': 'menu_off.ppm'},
-                           'Temperature': {'menu': 'menu_temperature.ppm',
-                                           'background': 'temperature.ppm',
+   config['Modes'] = {     'Off': {'menu': 'images/menu_off.ppm'},
+                           'Temperature': {'menu': 'images/menu_temperature.ppm',
+                                           'background': 'images/temperature.ppm',
                                            },
-                           'Rainbow': {'menu': 'menu_rainbow.ppm'},
+                           'Rainbow': {'menu': 'images/menu_rainbow.ppm'},
                            }
 
    config['LightModeOrder'] = ['Temperature', 'Rainbow', 'Off']
