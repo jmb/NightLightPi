@@ -2,6 +2,8 @@
 
 This project was created in order to replicate commercially available night light products which change colour based on the temperature, but with the added functionality of being able to report the sensor data to remote locations. The lightweight MQTT protocol has been used to achieve this aim along with APA102 neopixels which can easily be run from a Raspberry Pi.
 
+![Night Light House Example](images/nightlight_house.jpg)
+
 ## Hardware
 
 In my setup I use the following:
