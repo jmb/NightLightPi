@@ -4,6 +4,8 @@ This project was created in order to replicate commercially available night ligh
 
 ![Night Light House Example](images/nightlight_house.jpg?raw=true)
 
+An example of an enclosure to make a night light. This was re-purposed from a christmas decoration form a supermarket which had a battery powered tea light in it.
+
 ## Hardware
 
 In my setup I use the following:
@@ -16,6 +18,8 @@ In my setup I use the following:
 
 I have also used a ProtoZero board to keep all the soldering and connections neat.
 
+![Night Light House Insides](images/nightlight_inside.jpg?raw=true)
+
 The pin outs on the Raspberry Pi GPIO are as follows:
 * The APA102 strip is connected to the Raspberry Pi via the level shifter as per the instructions in the [APA102_Pi](https://github.com/tinue/APA102_Pi) library (pins 10 (MOSI) and 11 (SCLK)). Power-wise I calculated that with only 10 LEDs there would be enough available to power the strip, but this needs checking for your setup - [this page from Adafruit is useful](https://learn.adafruit.com/adafruit-neopixel-uberguide/power).
 * The DHT22 data pin is connected to Pi pin 22.
@@ -23,11 +27,15 @@ The pin outs on the Raspberry Pi GPIO are as follows:
 * The two buttons use pins 23 and 24 with their other side connected to GND.
 
 
+
 ## License
 
 Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 
 ## Contributing
+
+I'd love for this project to be expanded and improved - in particular the code was started
+as somewhat of a hack and could do with some proper clean up and refactoring!
 
 1. Fork it (<https://github.com/jmb/NightLightPi/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
