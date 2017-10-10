@@ -1,0 +1,11 @@
+paho-mqtt
+Adafruit-SSD1306
+Adafruit-GPIO
+spidev
+pyyaml
+pykwalify
+setuptools
+
+# I'm not sure if it is possible to install these with pip
+# git+git://github.com/tinue/APA102_Pi@f8b21091ecbc86d7b5351180937bf0ef22013d86
+# git+git://github.com/adafruit/Adafruit_Python_DHT@da8cddf7fb629c1ef4f046ca44f42523c9cf2d11
