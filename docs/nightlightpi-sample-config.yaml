@@ -55,6 +55,9 @@ temperature:
     - r: 255
       g: 0
       b: 0
+  update_seconds: 60
+  sensor_type: "Adafruit_DHT.AM2302"
+  pin: 200
 
 # Menu timing
 timing:

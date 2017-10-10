@@ -54,7 +54,7 @@ The data will be validated against the schema defined in conf-schema.yaml.
 
 
 # TODO: This could be simplified by using YAML SafeLoader and using object
-# deserialization. (wkmanire 10/10/2017)
+# deserialization. (wkmanire 2017-10-10)
 
 def _set_config_values(conf, data):
     """Copy data from the YAML configuration data into the Config instance."""
@@ -173,6 +173,9 @@ class TemperatureConfig:
     def __init__(self):
         self.sensor_ranges = None
         self.sensor_colours = None
+        self.sensor_type = "Adafruit_DHT.AM2302"
+        self.pin = 22
+        self.update_seconds = 60
 
 
 class TimingConfig:

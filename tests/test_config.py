@@ -6,8 +6,6 @@ the behavior of load_config. Note that load_yaml is exported from
 config.py in order to facilitate unit testing. It could be used by
 external callers, but it probably shouldn't be.
 
-TODO: Replace this validation with pykwalify
-http://pykwalify.readthedocs.io/en/master/
 """
 
 from unittest import TestCase

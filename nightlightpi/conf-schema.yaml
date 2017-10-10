@@ -90,6 +90,15 @@ mapping:
                 type: int
               b:
                 type: int
+      sensor_type:
+        type: str
+        required: True
+      pin:
+        type: int
+        required: True
+      update_seconds:
+        type: int
+        required: True
 
 
   timing:
