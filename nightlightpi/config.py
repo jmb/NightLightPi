@@ -98,6 +98,7 @@ def _set_inputs_values(inputs, data):
 def _set_temperature_values(temp_config, data):
     temp_config_data = data["temperature"]
     temp_config.sensor_ranges = temp_config_data["sensor_ranges"]
+    temp_config.sensor_type = temp_config_data["sensor_type"]
     colours = list()
     for c in temp_config_data["sensor_colours"]:
         colours.append((c["r"], c["g"], c["b"]))
@@ -173,7 +174,7 @@ class TemperatureConfig:
     def __init__(self):
         self.sensor_ranges = None
         self.sensor_colours = None
-        self.sensor_type = "Adafruit_DHT.AM2302"
+        self.sensor_type = "AM2302"
         self.pin = 22
         self.update_seconds = 60
 

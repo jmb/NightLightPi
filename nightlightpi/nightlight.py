@@ -135,10 +135,10 @@ class NightLight(threading.Thread):
 
        # Setup buttons
        GPIO.setmode(GPIO.BCM)
-       menu_button_pin = self.config.inputs.buttons_light
+       menu_button_pin = self.config.inputs.button_light
        GPIO.setup(menu_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
        GPIO.add_event_detect(menu_button_pin, GPIO.FALLING, callback=self.lightButtonPressed, bouncetime=500)
-       timer_button_pin = self.config.inputs.buttons_display
+       timer_button_pin = self.config.inputs.button_display
        GPIO.setup(timer_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
        GPIO.add_event_detect(timer_button_pin, GPIO.FALLING, callback=self.displayButtonPressed, bouncetime=500)
 
@@ -147,7 +147,7 @@ class NightLight(threading.Thread):
    def publishData(self, temperature, humidity):
        mqttConfig = self.config.mqtt
        if mqttConfig.enable:
-           self.mqttc.publish(mqttConfig.temp_topic, payload="{:0.1f}".format(temperature), retain=True)
+           self.mqttc.publish(mqttConfig.temperature_topic, payload="{:0.1f}".format(temperature), retain=True)
            self.mqttc.publish(mqttConfig.humidity_topic, payload="{:0.1f}".format(humidity), retain=True)
 
 
@@ -385,7 +385,7 @@ class NightLight(threading.Thread):
        # Try to grab a sensor reading and publish it.  Use the read_retry method which will retry up
        # to 15 times to get a sensor reading (waiting 2 seconds between each retry).
        sensorConfig = self.config.temperature
-       humidity, temperature = Adafruit_DHT.read_retry(locals()[sensorConfig.sensor_type], sensorConfig.pin)
+       humidity, temperature = Adafruit_DHT.read_retry(getattr(Adafruit_DHT, sensorConfig.sensor_type), sensorConfig.pin)
 
        if humidity is not None and temperature is not None:
            self.humidity = humidity
