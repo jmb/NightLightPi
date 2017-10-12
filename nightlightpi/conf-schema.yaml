@@ -64,10 +64,10 @@ mapping:
   inputs:
     type: map
     mapping:
-      buttons_light:
+      button_light:
         type: int
         required: True
-      buttons_display:
+      button_display:
         type: int
         required: True
 

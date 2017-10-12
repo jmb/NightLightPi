@@ -135,10 +135,10 @@ class NightLight(threading.Thread):
 
        # Setup buttons
        GPIO.setmode(GPIO.BCM)
-       menu_button_pin = self.config.buttons.light
+       menu_button_pin = self.config.inputs.buttons_light
        GPIO.setup(menu_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
        GPIO.add_event_detect(menu_button_pin, GPIO.FALLING, callback=self.lightButtonPressed, bouncetime=500)
-       timer_button_pin = self.config.buttons.display
+       timer_button_pin = self.config.inputs.buttons_display
        GPIO.setup(timer_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
        GPIO.add_event_detect(timer_button_pin, GPIO.FALLING, callback=self.displayButtonPressed, bouncetime=500)
 
@@ -303,7 +303,7 @@ class NightLight(threading.Thread):
 
 
    def setBrightness(self, brightness):
-       current_brightness = self.config['LEDStrip']['brightness']
+       current_brightness = self.config.led_strip.brightness
        try:
            new_brightness = int(brightness)
            self.config.led_strip.brightness = new_brightness
@@ -314,7 +314,7 @@ class NightLight(threading.Thread):
                self.lightTemperature()
 
            mqttConfig = self.config.mqtt
-           if mqttConfig['enable']:
+           if mqttConfig.enable:
                self.mqttc.publish(mqttConfig.brightness_topic, new_brightness, retain=True)
 
            status = 'Brightness: {0}'.format(new_brightness)

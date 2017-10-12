@@ -91,8 +91,8 @@ def _set_led_strip_values(led_strip, data):
 
 def _set_inputs_values(inputs, data):
     inputs_data = data["inputs"]
-    inputs.length = inputs_data["buttons_light"]
-    inputs.buttons_display = inputs_data["buttons_display"]
+    inputs.button_light = inputs_data["button_light"]
+    inputs.button_display = inputs_data["button_display"]
 
 
 def _set_temperature_values(temp_config, data):
