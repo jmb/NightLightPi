@@ -1,0 +1,80 @@
+# -*- coding: utf-8; -*-
+
+# This file contains a sample YAML configuration for NightLightPi.
+
+# This file should be copied to /etc/nightlightpi/nightlightpi.yaml.
+# Alternatively, the environment variable NIGHTLIGHTPICONFIG can be set to a
+# path specifying its location.
+# Example:
+#     export NIGHTLIGHTPICONFIG=$HOME/testconfig/nightlightpi.yaml
+
+# Topics and credentials for the MQTT server
+mqtt:
+  enable: True
+  server: "SERVER"
+  port: 8883
+  user: "USERNAME"
+  password: "PASSWORD"
+  temperature_topic: "nightlight/temperature"
+  humidity_topic: "nightlight/humidity"
+  display_topic: "nightlight/display"
+  light_topic: "nightlight/light"
+  brightness_topic: "nightlight/brightness"
+
+# LED strip settings
+led_strip:
+  length: 10
+  light: 10
+  max_brightness: 30
+  brightness: 6
+
+# Input Configuration
+inputs:
+  buttons_light: 23
+  buttons_display: 24
+
+# Temperature ranges and colours
+temperature:
+  sensor_ranges:
+    - 16
+    - 20
+    - 23.9
+  sensor_colours:
+    - r: 20
+      g: 0
+      b: 255
+      
+    - r: 255
+      g: 200
+      b: 10
+      
+    - r: 255
+      g: 128
+      b: 0
+      
+    - r: 255
+      g: 0
+      b: 0
+  update_seconds: 60
+  sensor_type: "AM2302"
+  pin: 200
+
+# Menu timing
+timing:
+  speed_in_seconds: 1
+  menu_button_pressed_time_in_seconds: 0
+  menu_display: 0
+
+# Display modes have a name, menu and an optional background
+# IMPORTANT! These specific modes are expected. Changing the names or removing
+# the below modes will prevent nightlight from running.
+display_modes:
+  - name: "Off"
+    menu: "images/menu_off.ppm"
+    background: ~
+  - name: "Temperature"
+    menu: "images/menu_temperature.ppm"
+    background: "images/temperature.ppm"
+  - name: "Rainbow"
+    menu: "images/menu_rainbow.ppm"
+    background: ~

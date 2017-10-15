@@ -1,0 +1,131 @@
+# -*- coding: utf-8 -*-
+---
+# This schema enforces both structure and type for the required configurations
+# needed to operate the device.
+
+name: nightlightpi-config
+desc: Settings for the NightLightPi device
+type: map
+
+mapping:
+  mqtt:
+    required: True
+    type: map
+    mapping:
+      enable:
+        type: bool
+        required: True
+      server:
+        type: str
+        required: True
+      port:
+        type: int
+        required: True
+      user:
+        type: str
+        required: True
+      password:
+        type: str
+        required: True
+      temperature_topic:
+        type: str
+        required: True
+      humidity_topic:
+        type: str
+        required: True
+      display_topic:
+        type: str
+        required: True
+      light_topic:
+        type: str
+        required: True
+      brightness_topic:
+        type: str
+        required: True
+
+
+  led_strip:
+    type: map
+    mapping:
+      length:
+        type: int
+        required: True
+      light:
+        type: int
+        required: True
+      max_brightness:
+        type: int
+        required: True
+      brightness:
+        type: int
+        required: True
+
+
+  inputs:
+    type: map
+    mapping:
+      button_light:
+        type: int
+        required: True
+      button_display:
+        type: int
+        required: True
+
+
+  temperature:
+    type: map
+    mapping:
+      sensor_ranges:
+        type: seq
+        sequence:
+          - type: float
+      sensor_colours:
+        type: seq
+        sequence:
+          - type: map
+            mapping:
+              r:
+                type: int
+              g:
+                type: int
+              b:
+                type: int
+      sensor_type:
+        type: str
+        required: True
+      pin:
+        type: int
+        required: True
+      update_seconds:
+        type: int
+        required: True
+
+
+  timing:
+    type: map
+    mapping:
+      speed_in_seconds:
+        type: int
+        required: True
+      menu_button_pressed_time_in_seconds:
+        type: int
+        required: True
+      menu_display:
+        type: int
+        required: True
+
+
+  display_modes:
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          name:
+            type: str
+            required: True
+          menu:
+            type: str
+            required: True
+          background:
+            type: str
+
